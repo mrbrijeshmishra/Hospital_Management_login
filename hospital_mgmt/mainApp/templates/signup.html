@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Signup</title>
+<style>
+    .custom-alert{
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<br><br>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success text-center custom-alert alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>    
+    {% endfor %}
+{% endif %}
+<div class="container col-4 mt-3 card p-3 shadow-lg">
+    <h2>Register Yourself Here</h2>
+    <hr>
+    <form method="post" action="#" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="name" name="fname" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="name" name="lname" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="Username" name="username" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputPassword1" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">Type of User </label>
+            <select name="category" id="role" required>
+                <option value="null" selected disabled>Please Select</option>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="address1" class="form-label">Address</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="address1" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="city" required>
+        </div>
+        <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="state" required>
+        </div>
+        <div class="mb-3">
+            <label for="pincode" class="form-label">PinCode</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="pincode" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="cpassword" required>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Profile Picture</label>
+            <input type="file" class="form-control" name="profile" required>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Register</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" class="btn btn-danger btn-block" value="Clear">
+        &nbsp;&nbsp;
+        <a href="/login/" class="text-decoration-none">Already User? Login</a>
+</form>
+</div><br><br>
+<br><br><br>
+{% endblock %}

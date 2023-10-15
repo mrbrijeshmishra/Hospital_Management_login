@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Login</title>
+<title>Patient and Doctor Portals</title>
+<style>
+    body {
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    .buttons {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+
+    }
+
+    .buttons a{
+        text-decoration: none;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+</head>
+
+<body>
+    <h1>Patient and Doctor Portals</h1>
+
+    <div class="buttons">
+        <a href="/patient_login/" class="button">Patient Portal</a>
+        <a href="/doctor_login/" class="button">Doctor Portal</a>
+    </div>
+</body>
+
+</html>
+{% endblock %}
